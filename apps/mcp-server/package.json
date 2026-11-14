@@ -1,0 +1,10 @@
+{
+  "name": "@agenticdb/mcp-server",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@agenticdb/execution": "workspace:*",
+    "@modelcontextprotocol/server": "2.0.0",
+    "@modelcontextprotocol/node": "2.0.0"
+  }
+}

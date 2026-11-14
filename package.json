@@ -1,0 +1,24 @@
+{
+  "name": "agenticdb",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24.12.0"
+  },
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "build": "tsc --noEmit && pnpm --filter @agenticdb/admin build",
+    "start:admin": "node apps/admin-server/src/index.ts",
+    "start:mcp": "node apps/mcp-server/src/index.ts",
+    "test": "node --test tests/pilot.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "25.0.3",
+    "typescript": "5.9.3",
+    "@modelcontextprotocol/client": "2.0.0",
+    "@electric-sql/pglite": "0.5.8",
+    "@electric-sql/pglite-socket": "0.2.11"
+  }
+}

@@ -1,0 +1,22 @@
+name: agenticdb-test-postgres
+
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: agenticdb_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres_test
+    ports:
+      - "127.0.0.1:15432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/01-customers.sql:ro
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "127.0.0.1", "-U", "postgres", "-d", "agenticdb_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  postgres_data:
